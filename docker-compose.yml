@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "${ADMINER_PORT}:${ADMINER_PORT}"
+    command:
+      - 'php'
+      - '-S'
+      - '[::]:${ADMINER_PORT}'
+      - '-t'
+      - '/var/www/html'
+    depends_on:
+      - db
+
+  backend:
+    image: backend
+    restart: always
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    env_file:
+      - .env
+    command: bash -c "alembic upgrade head && uvicorn main:app --host ${SERVER_HOST} --port ${SERVER_PORT}"
+    depends_on:
+      - db
