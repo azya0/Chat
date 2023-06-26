@@ -38,3 +38,15 @@ services:
     command: bash -c "alembic upgrade head && uvicorn main:app --host ${SERVER_HOST} --port ${SERVER_PORT}"
     depends_on:
       - db
+
+  frontend:
+    image: frontend
+    restart: always
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    depends_on:
+      - backend
+    command: "npm start"

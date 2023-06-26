@@ -27,7 +27,6 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = Field(default='name error')
     VERSION: str = Field(default='error')
     DEBUG: bool = Field(default=True)
-    VK_PROCESS_DEBUG: bool = Field(default=True)
 
     SECRET: str = Field(default='SECRET')
 
@@ -41,15 +40,6 @@ class Settings(BaseSettings):
     POSTGRES_PORT: str = Field(default='5432')
 
     ADMINER_PORT: int = Field(default=2087)
-
-    MAX_FILE_SIZE: int = Field(default=10)
-    CURRENT_FILE_PATH: str = Field(default='')
-    CURRENT_FILE_NAME: int = Field(default=0)
-
-    SSL_DATA: dict = Field(default={
-        'ssl_keyfile': getenv('SSL_KEYFILE'),
-        'ssl_certfile': getenv('SSL_CERTFILE')
-    })
 
     SQLALCHEMY_URL: Optional[PostgresDsn] = None
 
@@ -66,7 +56,7 @@ class Settings(BaseSettings):
             path=f'/{values.get("POSTGRES_DB")}'
         )
 
-    @validator('SERVER_HOST', pre=True)
+    @validator('POSTGRES_HOST', pre=True)
     def check_debug_mode(cls, v, values):
         if values.get('DEBUG'):
             return 'localhost'

@@ -1,4 +1,3 @@
-import uvicorn
 from fastapi import FastAPI
 from fastapi_pagination import add_pagination
 from fastapi.middleware.cors import CORSMiddleware
