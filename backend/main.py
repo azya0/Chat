@@ -1,18 +1,18 @@
 from fastapi import FastAPI
-from fastapi_pagination import add_pagination
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi_pagination import add_pagination
 
 from config import get_settings
 from controllers.user_controller import fastapi_users, auth_backend
-from routers.shemas import UserRead, UserCreate, UserUpdate
 from routers.__all__ import __all__ as routers
+from routers.shemas import UserRead, UserCreate, UserUpdate
 
 
-def get_application(_settings):
+def get_application(settings):
     application = FastAPI(
-        title=_settings.PROJECT_NAME,
-        version=_settings.VERSION,
-        debug=_settings.DEBUG,
+        title=settings.PROJECT_NAME,
+        version=settings.VERSION,
+        debug=settings.DEBUG,
     )
 
     origins = ['*']

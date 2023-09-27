@@ -11,6 +11,14 @@ class UserRead(schemas.BaseUser[uuid.UUID]):
     username: str
 
 
+class UserReadShort(BaseModel):
+    id: int
+    username: str
+
+    class Config:
+        orm_mode = True
+
+
 class UserCreate(CreateUpdateDictModel):
     email: EmailStr
     username: str
@@ -38,7 +46,7 @@ class UserUpdate(schemas.BaseUserUpdate):
     username: str
 
 
-class MessageRead(BaseModel):
+class MessageReadShort(BaseModel):
     id: int
     content: str
 
@@ -47,6 +55,19 @@ class MessageRead(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class MessageReadShortChat(MessageReadShort):
+    chat_id: int
+    author: UserRead
+
+
+class MessageRead(MessageReadShort):
+    author: UserRead
+
+
+class MessageReadUserShort(MessageReadShort):
+    author: UserReadShort
 
 
 class ChatRead(BaseModel):

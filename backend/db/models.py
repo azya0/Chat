@@ -20,7 +20,6 @@ class Base:
 
 @declarative_mixin
 class TimestampMixin:
-    """Mixin with timestamp fields"""
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(
         DateTime,
@@ -35,22 +34,33 @@ class User(TimestampMixin, SQLAlchemyBaseUserTable, Base):
 
     username = Column(String(30), index=True, unique=True, nullable=False)
 
+    chats = relationship('Chat', secondary='user_xref_chat', back_populates='users')
+    messages = relationship('Message', back_populates='author')
+
 
 class Message(TimestampMixin, Base):
     __tablename__ = 'message'
 
     content = Column(String(280), nullable=False)
+    chat_id = Column(Integer, ForeignKey('chat.id'), nullable=False)
+    author_id = Column(Integer, ForeignKey('user.id'), nullable=False)
 
+    chat = relationship("Chat", back_populates='messages', uselist=False)
+    author = relationship("User", back_populates='messages', uselist=False)
+
+
+class UserToChat(Base):
+    __tablename__ = 'user_xref_chat'
+
+    user = Column(Integer, ForeignKey('user.id'), index=True, nullable=False)
     chat = Column(Integer, ForeignKey('chat.id'), nullable=False)
 
 
 class Chat(TimestampMixin, Base):
     __tablename__ = 'chat'
 
-    first = Column(Integer, ForeignKey('user.id'), nullable=False)
-    second = Column(Integer, ForeignKey('user.id'), nullable=False)
-
-    messages = relationship('Message', lazy='selectin', uselist=True)
+    messages = relationship('Message', lazy='selectin', uselist=True, order_by='Message.created_at')
+    users = relationship('User', secondary='user_xref_chat', back_populates='chats', uselist=True)
 
 
 async def get_user_db(session: AsyncSession = Depends(get_async_session)):

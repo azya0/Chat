@@ -1,73 +1,145 @@
-.header h2 {
-    text-align: center;
+body {
+    margin: 0 auto;
+    position: fixed;
+    width: 100%;
+}
+
+.base {
+    display: flex;
+    min-height: 100vh;
+    font-family: Calibri, serif;
+    justify-content: space-between;
+}
+
+nav {
+    width: 16.5%;
+}
+
+nav header {
+    height: 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav header button {
+    border: none;
+    background: none;
+
+    cursor: pointer;
+}
+
+nav header button h3 {
     margin: 0;
 }
 
-.welcome {
+nav span {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-}
-
-.welcome button {
-    height: 100%;
-    width: auto;
-
-    border: none;
-    background: black;
-    color: white;
-
-    padding: .5% 1%;
-
-    border-radius: 12px;
-}
-
-.welcome button:hover {
-    cursor: pointer;
-}
-
-.find {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-
-    height: 2rem;
+    color: #808080b0;
+    margin-top: 1.5rem;
+    font-weight: bold;
 }
 
-.find input {
-    width: 30%;
-    padding: 10px;
-
-    border: 2px solid black;
-
-    margin-right: 1%;
+.chatList span {
+    opacity: 0;
+    animation: load .5s forwards;
 }
 
-.find button {
-    padding: 10px;
-
-    border: 2px solid black;
-
-    background-color: transparent;
+@keyframes load {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
-.find button:hover {
-    cursor: pointer;
+.searchBar {
+    transition: all .3s cubic-bezier(0, 0.02, 0.44, 1.01);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+
+    padding: 5px;
+    border-radius: 15px;
+    background: black;
+    margin-bottom: .5rem;
 }
 
-.chatList {
-    margin-top: 1%;
-    width: 20%;
+.frogIcon {
+    display: block;
+    margin: auto;
+    height: 20rem;
 
-    font-family: Calibri, serif;
+    stroke: #000000;
+    stroke-width: 10px;
+    stroke-linejoin: round;
+
+    transition: all 1s cubic-bezier(0, 0.02, 0.44, 1.01);
+}
+
+.frogIcon:hover {
+    stroke: #000000;
+    stroke-width: 10px;
+    stroke-linejoin: round;
+    color: white;
+
+    transition: all 1s cubic-bezier(0, 0.02, 0.44, 1.01);
+}
+
+.searchBar input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.searchBar * {
+    transition: all .3s cubic-bezier(0, 0.02, 0.44, 1.01);
+}
+
+.searchBar input {
+    border: none;
+    font-size: 18px;
+    width: 100%;
+    color: white;
+    margin-left: .5rem;
+    background: black;
+}
+
+.searchBar svg {
+    color: white;
+}
+
+.searchBar input:focus {
+    outline-width: 0;
+}
+
+.searchBar input:focus ~ .searchBar {
+    background: white;
+}
+
+.searchBarSelected {
+    transition: all .3s cubic-bezier(0, 0.02, 0.44, 1.01);
+
+    outline: 2px solid black;
+    background: white;
+}
+
+.searchBarSelected svg {
+    color: black;
+}
+
+.searchBarSelected input {
+    color: black;
+    background: white;
 }
 
 .chat {
+    transition: all 1s cubic-bezier(0, 0.02, 0.44, 1.01);
+
     width: 100%;
+
+    box-sizing: border-box;
 
     border: 2px solid black;
     padding: 2.5% 2%;
@@ -75,8 +147,11 @@
 
 .chat:hover {
     background-color: #e5e5e5;
-
     cursor: pointer;
+}
+
+.chat:focus {
+    background-color: #e5e5e5;
 }
 
 .chat:not(:first-child) {
@@ -93,12 +168,218 @@
 
 .chat div h4, p {
     margin: 0;
+}
+
+.chat div h4 {
     white-space: pre;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .chat p {
-    margin-top: 1.5%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     color: #555555;
+}
+
+.chatNew {
+    display: flex;
+    padding: .5rem 1.5rem;
+    justify-content: space-between;
+    color: white;
+    background: black;
+    cursor: pointer;
+    border: 2px solid black;
+    box-sizing: border-box;
+    transition: all 1s cubic-bezier(0, 0.02, 0.44, 1.01);
+    align-items: center;
+}
+
+.chatNew:hover {
+    background: white;
+    color: black;
+    border-color: black;
+
+    transition: all 1s cubic-bezier(0, 0.02, 0.44, 1.01);
+}
+
+.chatNew h4 {
+    margin: 0;
+    font-size: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.time {
+    font-size: 80%;
+}
+
+main {
+    height: 100vh;
+    width: 80%;
+
+    padding: 1.5% 0;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: black;
+}
+
+main .messageContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+
+    overflow-y: scroll;
+    scrollbar-width: thin;
+
+    padding: .5% 10% 0 10%;
+}
+
+main .messageContainer svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    right: 1rem;
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: .7rem;
+    border-radius: 100%;
+    cursor: pointer;
+
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#messageField {
+    background-color: #555555;
+}
+
+.messageOwn, .messageInterlocutor {
+    font-family: Calibri, sans-serif;
+    border: 2px solid black;
+
+    white-space: pre-line;
+
+    width: fit-content;
+
+    max-width: 50%;
+
+    padding: 5px 15px;
+
+    border-radius: 20px;
+
+    margin: .5% 0;
+}
+
+.messageOwn {
+    margin-right: 0;
+    margin-left: auto;
+
+    background-color: black;
+    color: white;
+}
+
+.messageOwn span, .messageInterlocutor span {
+    bottom: auto !important;
+    position: relative;
+    font-size: 10px;
+    margin-left: .5rem;
+    float: right;
+    top: .5rem;
+    right: -.3rem;
+}
+
+main footer {
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main footer svg {
+    color: white;
+    height: 1rem;
+    width: 1rem;
+    padding: .5rem;
+    background-color: black;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+main footer svg path {
+    transform: translateX(-40px);
+}
+
+main footer * {
+    border-radius: 20px;
+}
+
+main footer .messageInput {
+    border: 2px solid black;
+    width: 75%;
+    margin-right: .75rem;
+    padding: 7px 15px 7px 15px;
+    max-height: 26.5rem;
+    overflow-y: auto;
+}
+
+main footer button {
+    font-family: Calibri, sans-serif;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background: black;
+    color: white;
+
+    border: none;
+
+    width: 12.5%;
+
+    padding: .5% 0 .5% 0;
+
+    height: fit-content;
+}
+
+main footer button:hover {
+    cursor: pointer;
+}
+
+.welcome {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.welcome svg {
+    height: 10rem;
 }

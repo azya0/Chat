@@ -1,66 +1,58 @@
 import os
 from functools import lru_cache
-from os import getenv
 from typing import Optional
 
 from dotenv import load_dotenv
-from pydantic import Field, BaseSettings, PostgresDsn, validator
-
-
-def check_env_exist():
-    if not os.path.exists('.env'):
-        try:
-            os.mknod('.env')
-        except Exception as error:
-            raise Exception(f'No .env file: {error}')
-
-
-def write_env(key: str, value: str | int) -> None:
-    with open('.env', 'a') as env_file:
-        env_file.write(f'\n{key}={value}')
+from pydantic import BaseSettings, PostgresDsn, validator
 
 
 class Settings(BaseSettings):
-    check_env_exist()
     load_dotenv()
 
-    PROJECT_NAME: str = Field(default='name error')
-    VERSION: str = Field(default='error')
-    DEBUG: bool = Field(default=True)
+    PROJECT_NAME: str
+    VERSION: str
+    DEBUG: bool
 
-    SECRET: str = Field(default='SECRET')
+    SECRET: str | None
 
-    SERVER_HOST: str = Field(default='localhost')
-    SERVER_PORT: int = Field(default=443)
-
-    POSTGRES_DB: str = Field(default='database')
-    POSTGRES_USER: str = Field(default='root')
-    POSTGRES_PASSWORD: str = Field(default='root_password')
-    POSTGRES_HOST: str = Field(default='localhost')
-    POSTGRES_PORT: str = Field(default='5432')
-
-    ADMINER_PORT: int = Field(default=2087)
+    POSTGRES_DB: str
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
+    POSTGRES_HOST: str
+    POSTGRES_PORT: int
 
     SQLALCHEMY_URL: Optional[PostgresDsn] = None
 
+    @validator('POSTGRES_HOST', pre=True)
+    def check_debug_mode(cls, value, values):
+        if values.get('DEBUG'):
+            return 'localhost'
+        return value
+
+    @validator('SECRET', pre=True)
+    def set_secret(cls, value, values):
+        if value is not None:
+            return value
+
+        if values.get('DEBUG'):
+            load_dotenv('../.backend.env')
+            return os.getenv('SECRET')
+
+        raise Exception('miss secret')
+
     @validator('SQLALCHEMY_URL', pre=True)
-    def get_sqlalchemy_url(cls, v, values):
-        if isinstance(v, str):
-            return v
+    def get_sqlalchemy_url(cls, value, values):
+        if isinstance(value, str):
+            return value
+
         return PostgresDsn.build(
             scheme='postgresql+asyncpg',
             user=values.get('POSTGRES_USER'),
             password=values.get('POSTGRES_PASSWORD'),
             host=values.get('POSTGRES_HOST'),
-            port=values.get('POSTGRES_PORT'),
+            port=str(values.get('POSTGRES_PORT')),
             path=f'/{values.get("POSTGRES_DB")}'
         )
-
-    @validator('POSTGRES_HOST', pre=True)
-    def check_debug_mode(cls, v, values):
-        if values.get('DEBUG'):
-            return 'localhost'
-        return v
 
 
 @lru_cache

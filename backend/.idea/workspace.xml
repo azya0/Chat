@@ -2,12 +2,161 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5835caa-f3fe-4736-bf11-432d933d8cc9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/Main.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/MainChat.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/MainLeftPanel.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/MainMessage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/MainNewUser.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/MainSearchBar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/MainSelectChat.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/formatTime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/components/main/scrollHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/controllers/websocketController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.env" beforeDir="false" afterPath="$PROJECT_DIR$/../.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migration/versions/ab9651696d5f_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/chat.py" beforeDir="false" afterPath="$PROJECT_DIR$/routers/chat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/routers/message.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/shemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/routers/shemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/css/main.c6a63186.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/css/main.c6a63186.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/js/main.76f936d5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/js/main.76f936d5.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/js/main.76f936d5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/10.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/11.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/12.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/13.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/13.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/14.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/14.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/15.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/15.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/3.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/5.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/6.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/6.pack_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/7.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/8.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/8.pack_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/9.pack_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/core/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/core/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/core/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/core/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/core/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/eslint-parser/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/eslint-parser/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/eslint-parser/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/eslint-parser/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/eslint-parser/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-compilation-targets/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-compilation-targets/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-compilation-targets/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-compilation-targets/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-compilation-targets/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-regexp-features-plugin/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-regexp-features-plugin/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-regexp-features-plugin/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-regexp-features-plugin/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-create-regexp-features-plugin/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-define-polyfill-provider/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-define-polyfill-provider/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-define-polyfill-provider/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-define-polyfill-provider/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/helper-define-polyfill-provider/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/plugin-transform-runtime/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/plugin-transform-runtime/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/plugin-transform-runtime/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/plugin-transform-runtime/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/plugin-transform-runtime/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/preset-env/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/preset-env/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/preset-env/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/@babel/preset-env/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/@babel/preset-env/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/babel-plugin-polyfill-corejs2/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/babel-plugin-polyfill-corejs2/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/babel-plugin-polyfill-corejs2/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/babel-plugin-polyfill-corejs2/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/babel-plugin-polyfill-corejs2/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-import/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-import/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-import/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-import/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-import/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-jsx-a11y/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-jsx-a11y/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-jsx-a11y/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-jsx-a11y/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-jsx-a11y/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-react/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-react/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-react/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-react/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/eslint-plugin-react/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/istanbul-lib-instrument/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/istanbul-lib-instrument/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/istanbul-lib-instrument/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/istanbul-lib-instrument/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/istanbul-lib-instrument/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/make-dir/node_modules/semver/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/make-dir/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/make-dir/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/make-dir/node_modules/semver/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/make-dir/node_modules/semver/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/optionator/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/optionator/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/optionator/lib/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/optionator/lib/help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/optionator/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/optionator/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/optionator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/optionator/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/classes/comparator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/classes/comparator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/classes/range.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/classes/range.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/classes/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/classes/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/functions/coerce.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/functions/coerce.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/functions/diff.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/functions/diff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/internal/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/internal/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/internal/re.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/internal/re.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/semver/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/md5.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/md5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/parse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/rng.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/rng.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/sha1.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/sha1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/stringify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v3.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v35.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v35.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v4.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v5.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/v5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-browser/version.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/stringify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/v1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/v35.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/v35.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/v4.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/v4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/esm-node/version.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/rng-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/rng-browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/stringify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuid.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidNIL.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidParse.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidStringify.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidValidate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidVersion.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidv1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidv3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidv4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/umd/uuidv5.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/v1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/v35.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/v35.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/v4.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/v4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/dist/version.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/uuid/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/uuid/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Authorization.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Authorization.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Registration.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/controllers/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/css/index.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/css/index.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +193,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Азя\Desktop\chat\backend\websockets" />
       <recent name="C:\Users\Азя\PycharmProjects\chat" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.Dockerfile">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="chat" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,6 +220,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
@@ -80,6 +252,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Docker.Dockerfile" />
       </list>
     </recent_temporary>
@@ -113,7 +286,54 @@
       <workItem from="1687728054660" duration="22000" />
       <workItem from="1687728251784" duration="4580000" />
       <workItem from="1687732962111" duration="844000" />
-      <workItem from="1687777005730" duration="890000" />
+      <workItem from="1687777005730" duration="2788000" />
+      <workItem from="1687804207571" duration="571000" />
+      <workItem from="1687978502083" duration="1820000" />
+      <workItem from="1688044325924" duration="2147000" />
+      <workItem from="1688123816182" duration="7515000" />
+      <workItem from="1688141144821" duration="148000" />
+      <workItem from="1688198302841" duration="9744000" />
+      <workItem from="1688246584184" duration="9514000" />
+      <workItem from="1688322968756" duration="593000" />
+      <workItem from="1688336938459" duration="7352000" />
+      <workItem from="1688409641282" duration="7994000" />
+      <workItem from="1688460642808" duration="22755000" />
+      <workItem from="1688931780284" duration="595000" />
+      <workItem from="1688984887301" duration="5640000" />
+      <workItem from="1689024698099" duration="2734000" />
+      <workItem from="1689074484169" duration="3308000" />
+      <workItem from="1689161856229" duration="149000" />
+      <workItem from="1689189316565" duration="3358000" />
+      <workItem from="1689256437383" duration="824000" />
+      <workItem from="1689349657685" duration="3708000" />
+      <workItem from="1689375740677" duration="978000" />
+      <workItem from="1689516930283" duration="812000" />
+      <workItem from="1689537245846" duration="1807000" />
+      <workItem from="1689688388221" duration="1949000" />
+      <workItem from="1689713974424" duration="5803000" />
+      <workItem from="1689719945287" duration="5376000" />
+      <workItem from="1689768569855" duration="2201000" />
+      <workItem from="1689806330595" duration="2488000" />
+      <workItem from="1690011854826" duration="595000" />
+      <workItem from="1690126976479" duration="8462000" />
+      <workItem from="1690376206280" duration="9904000" />
+      <workItem from="1690578279787" duration="696000" />
+      <workItem from="1690581264618" duration="6813000" />
+      <workItem from="1690627571670" duration="8829000" />
+      <workItem from="1690648690614" duration="11337000" />
+      <workItem from="1690808549007" duration="2311000" />
+      <workItem from="1690836061595" duration="6317000" />
+      <workItem from="1690899290110" duration="534000" />
+      <workItem from="1690919826055" duration="4709000" />
+      <workItem from="1691063818004" duration="652000" />
+      <workItem from="1691071309968" duration="3170000" />
+      <workItem from="1691083745168" duration="75000" />
+      <workItem from="1691088731140" duration="955000" />
+      <workItem from="1691098574637" duration="3179000" />
+      <workItem from="1691235375297" duration="1312000" />
+      <workItem from="1692219443750" duration="1476000" />
+      <workItem from="1695841433403" duration="1446000" />
+      <workItem from="1695844274704" duration="3734000" />
     </task>
     <servers />
   </component>
@@ -133,5 +353,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chat$main.coverage" NAME="main Coverage Results" MODIFIED="1687524808782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/backend$test.coverage" NAME="test Coverage Results" MODIFIED="1691236112100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

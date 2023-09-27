@@ -1,16 +1,52 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi_pagination import LimitOffsetPage, LimitOffsetParams
 from fastapi_pagination.ext.sqlalchemy import paginate
-from sqlalchemy import select, or_, desc
+from sqlalchemy import select, desc
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from controllers.user_controller import current_active_user
-from db import get_async_session, Chat, User, Message
-from routers.shemas import ChatRead, MessageRead
+from db import get_async_session, Chat, User, Message, UserToChat
+from routers.shemas import ChatRead, MessageRead, UserReadShort
 
 router = APIRouter(
     prefix="/chat",
     tags=["chat"],
 )
+
+
+async def create_chat_with_interlocutor(interlocutor: User, message: str, current: User, session: AsyncSession):
+    request = select(Chat).join(Chat.users).where(Chat.users.contains(interlocutor), Chat.users.contains(current))
+
+    chat = (await session.execute(request)).scalars().first()
+
+    if chat is not None:
+        raise HTTPException(400, detail='chat already exist')
+
+    message = message.strip()
+
+    if not message:
+        raise HTTPException(400, detail='empty message')
+
+    chat = Chat()
+
+    session.add(chat)
+    await session.commit()
+    await session.refresh(chat)
+
+    for user in (current, interlocutor):
+        connection = UserToChat(user=user.id, chat=chat.id)
+        session.add(connection)
+
+    await session.commit()
+
+    message = Message(content=message, chat_id=chat.id, author_id=current.id)
+
+    session.add(message)
+    await session.commit()
+    await session.refresh(message)
+
+    return chat, message
 
 
 @router.post('/user/id/{user}', response_model=ChatRead)
@@ -21,33 +57,11 @@ async def create_chat(user: int, message: str = Query(min_length=1, max_length=2
     if interlocutor is None:
         raise HTTPException(404, detail=f'interlocutor {user} do not exist')
 
-    request = select(Chat).where(
-        Chat.first.in_([current.id, interlocutor.id]),
-        Chat.second.in_([current.id, interlocutor.id])
-    )
-
-    chat = (await session.execute(request)).scalars().first()
-
-    if chat is not None:
-        raise HTTPException(400, detail=f'chat already exist')
-
-    chat = Chat(first=current.id, second=interlocutor.id)
-
-    session.add(chat)
-    await session.commit()
-    await session.refresh(chat)
-
-    message = Message(content=message, chat=chat.id)
-
-    session.add(message)
-    await session.commit()
-    await session.refresh(message)
+    chat, message = await create_chat_with_interlocutor(interlocutor, message, current, session)
 
     last_message = MessageRead.from_orm(message)
 
-    response = ChatRead(id=chat.id, interlocutor=interlocutor, last_message=last_message)
-
-    return response
+    return ChatRead(id=chat.id, interlocutor=interlocutor, last_message=last_message)
 
 
 @router.post('/user/{username}', response_model=ChatRead)
@@ -59,42 +73,55 @@ async def create_chat_by_username(username: str, message: str = Query(min_length
     if interlocutor is None:
         raise HTTPException(404, detail=f'user {username} do not exist')
 
-    return await create_chat(interlocutor.id, message, current, session)
+    chat, message = await create_chat_with_interlocutor(interlocutor, message, current, session)
+
+    last_message = MessageRead.from_orm(message)
+
+    return ChatRead(id=chat.id, interlocutor=interlocutor, last_message=last_message)
 
 
-@router.get('/id/{chat_id}', response_model=ChatRead)
-async def get_chat_by_id(chat_id: int, current=Depends(current_active_user), session=Depends(get_async_session)):
-    chat = await session.get(Chat, chat_id)
-
-    if chat is None:
-        raise HTTPException(404, f'chat {chat_id} do not exist')
-
-    if not current.is_superuser and current.id not in (chat.first, chat.second):
+async def get_chat_by_chat_model(chat: Chat, current: User, interlocutor=None):
+    if not (current.is_superuser or current in chat.users):
         raise HTTPException(403, 'not enough permissions')
-
-    interlocutor_id = chat.first if chat.first != current.id else chat.second
-
-    interlocutor = await session.get(User, interlocutor_id)
-
+    
     if interlocutor is None:
-        raise HTTPException(404, f'interlocutor with id {interlocutor} do not exist')
+        interlocutor = chat.users[0] if chat.users[0] != current else chat.users[1]
+    
+        if interlocutor is None:
+            raise HTTPException(404, f'interlocutor do not exist')
 
     return ChatRead(id=chat.id, interlocutor=interlocutor, last_message=chat.messages[-1])
 
 
-@router.get('/user/id/{user}', response_model=ChatRead)
-async def get_chat(user: int, current=Depends(current_active_user), session=Depends(get_async_session)):
-    request = select(Chat).where(
-        Chat.first.in_([current.id, user]),
-        Chat.second.in_([current.id, user])
-    )
+@router.get('/id/{chat_id}', response_model=ChatRead)
+async def get_chat_by_id(chat_id: int, current=Depends(current_active_user), session=Depends(get_async_session)):
+    chat = await session.get(Chat, chat_id, options=(selectinload(Chat.users), ))
+
+    if chat is None:
+        raise HTTPException(404, f'chat {chat_id} do not exist')
+
+    return await get_chat_by_chat_model(chat, current)
+
+
+async def get_chat_by_interlocutor(interlocutor: User, current: User, session: AsyncSession):
+    request = select(Chat).join(Chat.users).where(Chat.users.contains(interlocutor), Chat.users.contains(current))
 
     chat = (await session.execute(request)).scalars().first()
 
     if chat is None:
-        raise HTTPException(404, detail=f'chat with interlocutor {user} do not exist')
+        raise HTTPException(404, detail=f'chat with interlocutor {interlocutor.id} do not exist')
 
-    return await get_chat_by_id(chat.id, current, session)
+    return await get_chat_by_chat_model(chat, current, interlocutor=interlocutor)
+
+
+@router.get('/user/id/{user}', response_model=ChatRead)
+async def get_chat(user: int, current=Depends(current_active_user), session=Depends(get_async_session)):
+    interlocutor = await session.get(User, user)
+
+    if interlocutor is None:
+        raise HTTPException(404, detail=f'interlocutor with id {user} do not exist')
+
+    return await get_chat_by_interlocutor(interlocutor, current, session)
 
 
 @router.get('/user/{username}', response_model=ChatRead)
@@ -106,7 +133,7 @@ async def get_chat_by_username(username: str, current=Depends(current_active_use
     if interlocutor is None:
         raise HTTPException(404, detail=f'user {username} do not exist')
 
-    return await get_chat(interlocutor.id, current, session)
+    return await get_chat_by_interlocutor(interlocutor, current, session)
 
 
 @router.get('/all', response_model=LimitOffsetPage)
@@ -114,35 +141,40 @@ async def get_chats(limit: int = Query(default=50, lt=101, gt=0),
                     offset: int = Query(default=0, gt=-1),
                     current=Depends(current_active_user),
                     session=Depends(get_async_session)):
-    async def get_interlocutor(_interlocutor_id):
-        _interlocutor = await session.get(User, _interlocutor_id)
+    request = select(Chat).where(Chat.users.contains(current)).order_by(desc(Chat.updated_at)).options(
+        selectinload(Chat.users), selectinload(Chat.messages, Message.author))
 
-        if _interlocutor is None:
-            raise HTTPException(404, f'interlocutor with id {_interlocutor} do not exist')
-
-        return _interlocutor
-
-    request = select(Chat).where(
-        or_(Chat.first == current.id, Chat.second == current.id)).join(
-        Chat.messages
-    ).order_by(desc(Message.created_at))
-
-    data = await paginate(
+    data: LimitOffsetPage = await paginate(
         session,
         request,
         params=LimitOffsetParams(limit=limit, offset=offset),
     )
 
     new_items = []
-    for obj in data.items:
-        interlocutor_id = obj.first if obj.first != current.id else obj.second
-        try:
-            interlocutor = await get_interlocutor(interlocutor_id)
-        except HTTPException:
-            continue
-
-        new_items += [ChatRead(id=obj.id, last_message=obj.messages[-1], interlocutor=interlocutor)]
+    for chat_model in data.items:
+        interlocutor = chat_model.users[0] if chat_model.users[0] != current else chat_model.users[1]
+        new_items.append(ChatRead(id=chat_model.id, interlocutor=interlocutor, last_message=chat_model.messages[-1]))
 
     data.items = new_items
+
+    return data
+
+
+@router.get('/to_create_with/{username}', response_model=LimitOffsetPage[UserReadShort])
+async def get_chats(username: str,
+                    limit: int = Query(default=50, lt=101, gt=0),
+                    offset: int = Query(default=0, gt=-1),
+                    current: User = Depends(current_active_user),
+                    session: AsyncSession = Depends(get_async_session)):
+    request = select(User).where(
+        User.id != current.id, User.username.regexp_match(f'(\\S*){username}(\\S*)', flags='i'),
+        ~User.chats.any(Chat.users.any(id=current.id))
+    )
+
+    data = await paginate(
+        session,
+        request,
+        params=LimitOffsetParams(limit=limit, offset=offset),
+    )
 
     return data
